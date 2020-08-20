@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.app.huawei">
+    <!-- permission for WiFI post processing,not for scankit itself -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- camera permission -->
+    <uses-permission android:name="android.permission.CAMERA" /> <!-- read permission for Bitmap Mode -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- write permission for save QRCODE Bitmap,not for scankit itself -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="com.huawei.hms.permission.ACTIVITY_RECOGNITION"/>
+
+    <application
+        android:name=".AdSampleApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/toolbox"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning">
+
+        <activity
+            android:name=".CommonActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DefinedActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".GenerateCodeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DisPlayActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DisPlayMulActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SplashActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.huawei.hms.hmsscankit.ScanKitActivity" />
+        <activity
+            android:name=".BankCardRecognitionActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name=".IDCardRecognitionActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name=".TextRecognitionActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name=".RemoteDetectionActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name=".camera.camera.MainTransferActivity"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name=".camera.camera.RemoteTranslateActivity"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name=".camera.camera.CapturePhotoActivity"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name=".RequestLocationUpdatesWithCallbackActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
+            android:theme="@style/Theme.AppCompat" />
+
+        <activity android:name="com.huawei.hmssample2.NavigationContextStateActivity"></activity>
+        <activity android:name="com.huawei.hmssample2.geofence.OperateGeoFenceActivity" />
+        <activity android:name="com.huawei.hmssample2.geofence.GeoFenceActivity" />
+        <activity android:name="com.huawei.hmssample2.HuaweiLocationActivity"/>
+        <activity
+            android:name="com.huawei.hmssample2.location.fusedlocation.RequestLocationUpdatesWithCallbackActivity"
+            android:configChanges="orientation|screenSize" /> <!-- RequestLocationUpdatesWithIntent -->
+        <activity
+            android:name="com.huawei.hmssample2.location.fusedlocation.RequestLocationUpdatesWithIntentActivity"
+            android:configChanges="orientation|screenSize" /> <!-- GetLastLocation -->
+        <activity
+            android:name="com.huawei.hmssample2.location.fusedlocation.GetLastLocationActivity"
+            android:configChanges="orientation|screenSize" /> <!-- GetLocationAvailability -->
+        <activity
+            android:name="com.huawei.hmssample2.location.fusedlocation.GetLocationAvailabilityActivity"
+            android:configChanges="orientation|screenSize" /> <!-- SetMockMode -->
+        <activity
+            android:name="com.huawei.hmssample2.location.fusedlocation.SetMockModeActivity"
+            android:configChanges="orientation|screenSize" /> <!-- SetMockLocation -->
+        <activity
+            android:name="com.huawei.hmssample2.location.fusedlocation.SetMockLocationActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name="com.huawei.hmssample2.activity.ActivityConversionActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name="com.huawei.hmssample2.activity.ActivityIdentificationActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name="com.huawei.hmssample2.location.fusedlocation.RequestLocationUpdatesHDWithCallbackActivity"
+            android:configChanges="orientation|screenSize" /> <!-- LocationBroadcastReceiver -->
+        <receiver
+            android:name="com.huawei.hmssample2.location.fusedlocation.LocationBroadcastReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.huawei.hmssample.location.LocationBroadcastReceiver.ACTION_PROCESS_LOCATION" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".geofence.GeoFenceBroadcastReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.huawei.hmssample.geofence.GeoFenceBroadcastReceiver.ACTION_PROCESS_LOCATION" />
+            </intent-filter>
+        </receiver>
+
+        <provider
+            android:name="com.huawei.hms.update.provider.UpdateProvider"
+            android:authorities="${applicationId}.hms.update.provider"
+            android:exported="false"
+            android:grantUriPermissions="true" />
+
+        <meta-data
+            android:name="push_kit_auto_init_enabled"
+            android:value="true" />
+
+        <activity android:name="com.huawei.codelabpush.MainActivity"/>
+
+        <activity android:name="com.huawei.codelabpush.DeeplinkActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:host="com.huawei.codelabpush"
+                    android:path="/deeplink"
+                    android:scheme="pushscheme" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.huawei.codelabpush.Deeplink2Activity">
+            <intent-filter>
+                <action android:name="com.huawei.codelabpush.intent.action.test" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
+
+
+    </application>
+
+</manifest>
